@@ -12,6 +12,7 @@ MHADTI: The codes demo for paper "MHADTI:Predicting drug-target interactions via
 * Anyone can download this datasets and preprocess it as described in the paper. If there is any more question about dataset, please feel free to contact one of authors Peng Xiangyu.
 
 # Quick start
-Just run the code "main.py" directly.
+* First, you need to unzip the .zip folder in data to get the datasets for training.
+* Then, run the code "main.py" directly.
 
 # Thanks!

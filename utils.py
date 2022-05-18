@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.io as sio
 import torch
-from sklearn.metrics import roc_auc_score, average_precision_score, recall_score, precision_score
+from sklearn.metrics import roc_auc_score, average_precision_score, f1_score
 
 
 def accuracy(outputs, labels):
@@ -12,20 +12,6 @@ def accuracy(outputs, labels):
     if labels.size() == 0:
         return np.nan
     return corrects.sum().item() / labels.size()[0]
-
-
-def precision(outputs, labels):
-    assert labels.dim() == 1 and outputs.dim() == 1
-    labels = labels.detach().cpu().numpy()
-    outputs = outputs.ge(0.5).type(torch.int32).detach().cpu().numpy()
-    return precision_score(labels, outputs)
-
-
-def recall(outputs, labels):
-    assert labels.dim() == 1 and outputs.dim() == 1
-    labels = labels.detach().cpu().numpy()
-    outputs = outputs.ge(0.5).type(torch.int32).detach().cpu().numpy()
-    return recall_score(labels, outputs)
 
 
 def auc(outputs, labels):
@@ -58,7 +44,8 @@ def mcc(outputs, labels):
 
 
 def compute_f1(outputs, labels):
-    return (precision(outputs, labels) + recall(outputs, labels)) / 2
+    outputs = outputs.ge(0.5).type(torch.int32).detach().cpu().numpy()
+    return f1_score(labels, outputs)
 
 
 def get_inter(f_inter, drug_list, protein_list):

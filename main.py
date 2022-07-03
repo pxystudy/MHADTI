@@ -144,7 +144,7 @@ if __name__ == '__main__':
         drug_index = random.choice(range(nd))
         target_index = random.choice(range(nt))
         neg_pos = [drug_index, target_index]
-        if neg_pos in lt_inter:
+        if neg_pos in lt_inter or neg_pos in negative_train:
             continue
         negative_train.append(neg_pos)
         i = i + 1

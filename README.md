@@ -25,9 +25,9 @@ MHADTI: The codes demo for paper "MHADTI:Predicting drug-target interactions via
 * Then, run the code "main.py" directly.
 
 # Data Preprocessing
-If you want use MHADTI model in other datasets, you need to do the following processing on the obtained DTI datasets.
-* First, we need to find drug-related data: MACCS nolecular fingerprint of drugs and drug side effects; Protein-related data: protein sequence, annotated terms of protein on the three gene ontology substructures, and protein domains.
-* Secondly, calculate the node similarity according to the drug and target similarity calculation methods in the Method part of paper.
-* Thirdly, consturct heterogeneous networks according to the model frame digram of the paper.
+Researchers could employ MHADTI model on their own datasets to predict DTIs, there are three steps for running MHADTI model listed below. The whole workflow can be seen in Figure 1 in the manuscript.
+* Firstly, multisource data related with drugs and targets needs to be collected. The data mainly contains MACCS molecular fingerprint of drugs, drug side effects, drug-target interaction data, protein sequence, Gene Ontology annotation data of proteins, and domains of proteins.
+* Secondly, multiview heterogeneous information networks need to be constructed. The similarity of between drugs (or targets) can be evaluated by various models (see our manuscript). Further, different drugs and target similarity networks can be established. Finally, multiview heterogeneous information networks can be formed with the drug similarity networks, target similarity networks and the drug-target interaction network. 
+* Thirdly, all the multiview heterogeneous information networks can be fed into MHADTI model for training. After that, MHADTI could predict novel drug-target interactions.
 
 # Thanks!
